@@ -1,0 +1,7 @@
+En esta carpeta encontraran los archivos correspondientes a la BD de Kibobazar al igual que el modelo de las tablas entidad relacion de la BD correspondiente.
+1.- Ejecutaremos el script para crear la bd de kibobazar
+2.- Ejecutaremos el script para crear las categorias
+3.- Ejecutaremos el script para crear los privilegios
+4.- Ejecutaremos el script para crear los productos
+5.- Ejecutaremos el script para crear los clientes
+6.- Ejecutaremos el script para crear los pedidos
