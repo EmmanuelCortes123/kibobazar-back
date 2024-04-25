@@ -1,7 +1,7 @@
 
 SELECT * FROM privilegios;
 ALTER TABLE privilegios AUTO_INCREMENT = 1;
-INSERT INTO privilegios(privilegios)
+INSERT INTO privilegios(id_privilegios, privilegios)
 VALUES
-("Administrador"),
-("Usuario");
+(1, "Administrador"),
+(2, "Usuario");
