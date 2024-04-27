@@ -1,0 +1,9 @@
+NOTAS RODO
+1. Modelo entidad-relacion
+   Agregue en la tabla usuarios el campo active 
+   Hice en la tabla de usuarios que correo fuera "unique"
+   Hay una imagen en la carpeta BD
+2. JAVA
+   Las variables de entorno para conectar son del usuario que yo cree localmente (ver imagen)
+   No supe si se tenian que crear las tablas "clientes_has_privilegios y pedidos_has_productos"
+   Ver imagen del Modelo entidad-relacion creado a traves de JAVA
