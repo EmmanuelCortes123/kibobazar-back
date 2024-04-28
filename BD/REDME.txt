@@ -5,3 +5,6 @@ En esta carpeta encontraran los archivos correspondientes a la BD de Kibobazar a
 4.- Ejecutaremos el script para crear los productos
 5.- Ejecutaremos el script para crear los clientes
 6.- Ejecutaremos el script para crear los pedidos
+
+
+   
