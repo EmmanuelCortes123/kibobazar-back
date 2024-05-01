@@ -17,46 +17,41 @@ public class PrivilegioServiceImpl implements PrivilegioService{
 	public PrivilegioServiceImpl(PrivilegioRepository privilegioRepository) {
 		this.privilegioRepository = privilegioRepository;
 	}
-
 	@Override
 	public Privilegio getPrivilegioById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Privilegio getPrivilegioByCorreo(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Privilegio createPrivilegio(Privilegio provilegio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public List<Privilegio> getAllActivePrivilegio() {
-		return (List<Privilegio>) privilegioRepository.findAllByActiveTrue();
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public List<Privilegio> getAllInactivePrivilegio() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Privilegio updatePrivilegio(Privilegio privilegio, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void deletePrivilegio(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
+
+	

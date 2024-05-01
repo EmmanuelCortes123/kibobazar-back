@@ -17,46 +17,43 @@ public class PedidoServiceImpl implements PedidoService{
 	public PedidoServiceImpl(PedidoRepository pedidoRepository) {
 		this.pedidoRepository = pedidoRepository;
 	}
-
 	@Override
 	public Pedido getPedidoById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Pedido getPedidoByCorreo(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Pedido createPedido(Pedido pedido) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public List<Pedido> getAllActivePedido() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public List<Pedido> getAllInactivePedido() {
-		return (List<Pedido>) pedidoRepository.findAllByActiveTrue();
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public Pedido updatePedido(Pedido pedido, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void deletePedido(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
+	
 
 }

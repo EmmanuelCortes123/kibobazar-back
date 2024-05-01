@@ -15,46 +15,42 @@ public class CategoriaServiceImpl implements CategoriaService{
 	public CategoriaServiceImpl(CategoriaRepository categoriaRepository) {
 		this.categoriaRepository = categoriaRepository;
 	}
-
 	@Override
 	public Categoria getCategoriaById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Categoria getCategoriaByNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Categoria createCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public List<Categoria> getAllActiveCategoria() {
-		return (List<Categoria>) categoriaRepository.findAllByActiveTrue();
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public List<Categoria> getAllInactiveCategoria() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Categoria updateCategoria(Categoria categoria, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void deleteCategoria(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
