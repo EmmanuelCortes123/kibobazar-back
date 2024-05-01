@@ -52,4 +52,16 @@ public class ProductoServiceImpl implements ProductoService{
 		return null;
 	}
 
+	@Override
+	public Producto deleteProducto(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Producto> getAllProducto(boolean active) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
