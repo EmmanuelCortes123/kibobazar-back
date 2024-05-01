@@ -34,7 +34,17 @@ public class Producto {
 
     @Column(name = "precio", nullable = false, precision = 9, scale = 2)
     private BigDecimal precio;
+    
+    private Boolean active;
 	
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	// Creando constructor vacio
     public Producto(){
@@ -143,5 +153,9 @@ public class Producto {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
+
+	
     
 }

@@ -13,5 +13,6 @@ public interface ProductoService {
 	List<Producto> getAllActiveProducto();
 	List<Producto> getAllInactiveProducto();
 	Producto updateProducto(Producto producto, Long id);
+
 	
 }
