@@ -44,7 +44,7 @@ public class PedidoServiceImpl implements PedidoService{
 
 	@Override
 	public List<Pedido> getAllInactivePedido() {
-		return (List<Pedido>) pedidoRepository.findAllByActiveTrue();
+		return null;
 	}
 
 	@Override

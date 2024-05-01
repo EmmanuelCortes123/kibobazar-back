@@ -36,7 +36,7 @@ public class CategoriaServiceImpl implements CategoriaService{
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {
-		return (List<Categoria>) categoriaRepository.findAllByActiveTrue();
+		return null;
 	}
 
 	@Override
