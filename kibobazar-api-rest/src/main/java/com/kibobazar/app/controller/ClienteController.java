@@ -54,4 +54,13 @@ public class ClienteController {
 		clienteService.deleteCliente(id);
 		return new ResponseEntity<String>("User id " + id + " successfully deleted", HttpStatus.OK);
 	}
+	
+	@PutMapping("{id}")
+	ResponseEntity<Cliente> updateCliente(
+			@RequestBody Cliente cliente,
+			@PathVariable("id") Long id
+			){
+		Cliente updateCliente = clienteService.updateCliente(cliente, id);
+		return new ResponseEntity<Cliente>(updateCliente, HttpStatus.OK);
+	}
 }

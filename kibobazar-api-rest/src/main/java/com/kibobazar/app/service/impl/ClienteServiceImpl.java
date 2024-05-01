@@ -3,6 +3,7 @@ package com.kibobazar.app.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.kibobazar.app.entity.Cliente;
@@ -14,9 +15,11 @@ import com.kibobazar.app.service.ClienteService;
 public class ClienteServiceImpl implements ClienteService {
 
 	ClienteRepository clienteRepository;
+	PasswordEncoder passwordEncoder;
 	
-	public ClienteServiceImpl(ClienteRepository clienteRepository) {
+	public ClienteServiceImpl(ClienteRepository clienteRepository, PasswordEncoder passwordEncoder) {
 	this.clienteRepository = clienteRepository;
+	this.passwordEncoder = passwordEncoder;
 	}
 	
 	@Override
@@ -34,8 +37,15 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public Cliente getClienteByCorreo(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Cliente> clienteOptional = clienteRepository.findByCorreo(email);
+		Cliente existingCliente;
+		
+		if( clienteOptional.isPresent() ) {
+			existingCliente = clienteOptional.get();
+			return existingCliente;
+		} else {
+			throw new IllegalStateException("User does not exist with correo " + email);
+		}
 	}
 
 	@Override
@@ -43,7 +53,7 @@ public class ClienteServiceImpl implements ClienteService {
 		cliente.setActive(true);
 		cliente.setId(null);
 		
-		//TODO encriptar password
+		cliente.setContraseña(passwordEncoder.encode(cliente.getContraseña()));
 		
 		if(clienteRepository.existsByCorreo(cliente.getCorreo())) {
 			throw new IllegalStateException("User exist with email " + cliente.getCorreo());
@@ -58,7 +68,6 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public List<Cliente> getAllInactiveCliente() {
-		// TODO Auto-generated method stub
 		return (List<Cliente>) clienteRepository.findAllByActiveFalse();
 	}
 	
@@ -69,9 +78,13 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public Cliente updateCliente(Cliente Cliente, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Cliente updateCliente(Cliente cliente, Long id) {
+		Cliente existingCliente = getClienteById(id);
+		existingCliente.setNombre(cliente.getNombre());
+		existingCliente.setApellido(cliente.getApellido());
+		existingCliente.setContraseña(cliente.getContraseña());
+		existingCliente.setTelefono(cliente.getTelefono());
+		return clienteRepository.save(existingCliente);
 	}
 
 	@Override
@@ -80,5 +93,4 @@ public class ClienteServiceImpl implements ClienteService {
 		existingCliente.setActive(false);
 		clienteRepository.save(existingCliente);
 	}
-
 }
