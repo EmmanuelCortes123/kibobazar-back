@@ -1,5 +1,5 @@
-INSERT INTO privilegios (privilegios) VALUES ("cliente");
-INSERT INTO privilegios (privilegios) VALUES ("admin");
+INSERT INTO privilegios (privilegios) VALUES ("CLIENTE");
+INSERT INTO privilegios (privilegios) VALUES ("ADMIN");
 
 INSERT INTO categorias (nombre, descripcion) VALUES ("Vestido","vestidos de diferentes estilos");
 INSERT INTO categorias (nombre, descripcion) VALUES ("Short", "shorts de diferentes estilos");
