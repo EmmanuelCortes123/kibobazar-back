@@ -10,6 +10,7 @@ public interface ClienteService {
 	Cliente createCliente(Cliente cliente);
 	List<Cliente> getAllActiveCliente();
 	List<Cliente> getAllInactiveCliente();
+	List<Cliente> getAllCliente(boolean isActive);
 	Cliente updateCliente(Cliente cliente, Long id);
 	void deleteCliente(Long id);
 }

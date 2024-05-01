@@ -26,7 +26,6 @@ public class ProductoServiceImpl implements ProductoService{
 
 	@Override
 	public Producto getProductoByNombre(String nombre) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -38,7 +37,7 @@ public class ProductoServiceImpl implements ProductoService{
 
 	@Override
 	public List<Producto> getAllActiveProducto() {
-		return (List<Producto>) productoRepository.findAllByActiveTrue();
+		return null;
 	}
 
 	@Override

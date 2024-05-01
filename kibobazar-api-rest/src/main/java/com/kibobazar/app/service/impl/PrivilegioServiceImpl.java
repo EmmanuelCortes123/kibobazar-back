@@ -38,7 +38,7 @@ public class PrivilegioServiceImpl implements PrivilegioService{
 
 	@Override
 	public List<Privilegio> getAllActivePrivilegio() {
-		return (List<Privilegio>) privilegioRepository.findAllByActiveTrue();
+		return null;
 	}
 
 	@Override
