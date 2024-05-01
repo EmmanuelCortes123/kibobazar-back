@@ -33,6 +33,11 @@ public class CategoriaServiceImpl implements CategoriaService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public List<Categoria> getAllCategoria(boolean active) {
+		return null;
+	}
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {
