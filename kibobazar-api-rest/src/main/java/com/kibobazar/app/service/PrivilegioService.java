@@ -10,6 +10,7 @@ public interface PrivilegioService {
 	Privilegio createPrivilegio(Privilegio provilegio);
 	List<Privilegio> getAllActivePrivilegio();
 	List<Privilegio> getAllInactivePrivilegio();
+	List<Privilegio> getAllPrivilegio(boolean isActive);
 	Privilegio updatePrivilegio(Privilegio privilegio, Long id);
 	void deletePrivilegio(Long id);
 }

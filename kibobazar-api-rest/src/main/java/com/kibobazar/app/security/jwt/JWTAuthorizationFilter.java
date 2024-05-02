@@ -16,23 +16,22 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JWTAuthorizationFilter extends  OncePerRequestFilter {
 
 	// STEP 8.1 extraer el token del header
-
-
-	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
-String bearerToken = request.getHeader("Authorization");
-		
-		if ( bearerToken != null && bearerToken.startsWith("Bearer ") ) {
-			String token = bearerToken.replace("Bearer ", "");
-			UsernamePasswordAuthenticationToken usernamePAT = TokenUtils.getAuthentication(token) ; 
-			SecurityContextHolder.getContext().setAuthentication( usernamePAT );
-		} else {
-			// throw new IllegalStateException("Se requiere de un token");
-		
+		@Override
+		protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+				throws ServletException, IOException {
+			
+			String bearerToken = request.getHeader("Authorization");
+			
+			if ( bearerToken != null && bearerToken.startsWith("Bearer ") ) {
+				String token = bearerToken.replace("Bearer ", "");
+				UsernamePasswordAuthenticationToken usernamePAT = TokenUtils.getAuthentication(token) ; 
+				SecurityContextHolder.getContext().setAuthentication( usernamePAT );
+			} else {
+				// throw new IllegalStateException("Se requiere de un token");
+			
+		}
+			
+			filterChain.doFilter(request, response);
+			
+		}
 	}
-		
-		filterChain.doFilter(request, response);
-		
-	}
-}

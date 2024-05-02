@@ -10,6 +10,7 @@ public interface PedidoService {
 	Pedido createPedido(Pedido pedido);
 	List<Pedido> getAllActivePedido();
 	List<Pedido> getAllInactivePedido();
+	List<Pedido> getAllPedido(boolean isActive);
 	Pedido updatePedido(Pedido pedido, Long id);
 	void deletePedido(Long id);
 }
