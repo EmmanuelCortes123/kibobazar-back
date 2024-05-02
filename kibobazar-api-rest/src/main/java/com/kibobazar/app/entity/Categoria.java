@@ -16,6 +16,8 @@ public class Categoria {
 
     @Column(name = "descripcion", nullable = false, length = 150)
     private String descripcion;
+    
+    private Boolean active;
 
 	// Creando constructor vacio
     public Categoria(){
@@ -48,6 +50,14 @@ public class Categoria {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	
 	//Creando toString con StringBuild
@@ -60,6 +70,8 @@ public class Categoria {
 		builder.append(nombre);
 		builder.append(", descripcion=");
 		builder.append(descripcion);
+		builder.append(", active=");
+		builder.append(active);
 		builder.append("]");
 		return builder.toString();
 	}

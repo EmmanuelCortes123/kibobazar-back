@@ -28,9 +28,10 @@ public class Cliente {
 	
     private Boolean active;
     
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "role_id", nullable = false)
     private Privilegio privilegio;
-    
+   
 	// Creando constructor vacio
     public Cliente(){
     	

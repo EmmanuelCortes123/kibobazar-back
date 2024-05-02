@@ -1,6 +1,7 @@
 package com.kibobazar.app.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,15 @@ public class CategoriaServiceImpl implements CategoriaService{
 
 	@Override
 	public Categoria getCategoriaById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Categoria> categoriaOptional = categoriaRepository.findById(id);
+		Categoria existingCategoria;
+		
+		if( categoriaOptional.isPresent() ) {
+			existingCategoria = categoriaOptional.get();
+			return existingCategoria;
+		} else {
+			throw new IllegalStateException("User does not exist with id " + id);
+		}
 	}
 
 	@Override
@@ -30,31 +38,46 @@ public class CategoriaServiceImpl implements CategoriaService{
 
 	@Override
 	public Categoria createCategoria(Categoria categoria) {
-		// TODO Auto-generated method stub
-		return null;
+		categoria.setActive(true);
+		categoria.setId(null);
+		
+		
+		
+		if(categoriaRepository.existsById(categoria.getId())) {
+			throw new IllegalStateException("categoria exist with id " + categoria.getId());
+		}
+		return categoriaRepository.save(categoria);
 	}
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {
-		return null;
+		return (List<Categoria>) categoriaRepository.findAllByActiveTrue();
 	}
 
 	@Override
 	public List<Categoria> getAllInactiveCategoria() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Categoria>) categoriaRepository.findAllByActiveFalse();
 	}
 
 	@Override
 	public Categoria updateCategoria(Categoria categoria, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Categoria existingCategoria = getCategoriaById(id);
+		existingCategoria.setNombre(categoria.getNombre());
+		existingCategoria.setDescripcion(categoria.getDescripcion());
+		return categoriaRepository.save(existingCategoria);
 	}
 
 	@Override
 	public void deleteCategoria(Long id) {
+		Categoria existingCategoria = getCategoriaById(id);
+		existingCategoria.setActive(false);
+		categoriaRepository.save(existingCategoria);
+	}
+
+	@Override
+	public List<Categoria> getAllCategoria(boolean isActive) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 }

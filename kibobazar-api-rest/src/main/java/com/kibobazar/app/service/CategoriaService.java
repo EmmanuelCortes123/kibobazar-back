@@ -10,6 +10,7 @@ public interface CategoriaService {
 	Categoria createCategoria(Categoria categoria);
 	List<Categoria> getAllActiveCategoria();
 	List<Categoria> getAllInactiveCategoria();
+	List<Categoria> getAllCategoria(boolean isActive);
 	Categoria updateCategoria(Categoria categoria, Long id);
 	void deleteCategoria(Long id);
 }

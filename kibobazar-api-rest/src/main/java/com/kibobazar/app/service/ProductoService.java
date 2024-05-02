@@ -10,5 +10,7 @@ public interface ProductoService {
 	Producto createProducto(Producto producto);
 	List<Producto> getAllActiveProducto();
 	List<Producto> getAllInactiveProducto();
+	List<Producto> getAllProducto(boolean isActive);
 	Producto updateProducto(Producto producto, Long id);
+	void deleteProducto(Long id);
 }

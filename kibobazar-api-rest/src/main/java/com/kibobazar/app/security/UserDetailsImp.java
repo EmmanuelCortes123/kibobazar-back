@@ -25,7 +25,8 @@ public class UserDetailsImp implements UserDetails{
 		
 		
 		
-		authorities.add(new SimpleGrantedAuthority("ROLE_" + this.cliente.getPrivilegio().getPrivilegios().toUpperCase())
+		authorities.add(
+				new SimpleGrantedAuthority("ROLE_" + this.cliente.getPrivilegio().getPrivilegios().toUpperCase())
 				);
 		return authorities;
 	}
