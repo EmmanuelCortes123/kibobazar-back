@@ -35,6 +35,7 @@ public class Producto {
     @Column(name = "precio", nullable = false, precision = 9, scale = 2)
     private BigDecimal precio;
 	
+    private Boolean active;
 
 	// Creando constructor vacio
     public Producto(){
@@ -117,6 +118,14 @@ public class Producto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	//Creando toString con StringBuild
 	@Override
@@ -140,6 +149,8 @@ public class Producto {
 		builder.append(precio);
 		builder.append(", categoria=");
 		builder.append(categoria);
+		builder.append(", active=");
+		builder.append(active);
 		builder.append("]");
 		return builder.toString();
 	}

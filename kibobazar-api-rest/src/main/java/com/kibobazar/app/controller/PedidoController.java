@@ -11,17 +11,13 @@ import com.kibobazar.app.service.PedidoService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/v1/pedido")
+@RequestMapping("api/v1/pedidos")
 public class PedidoController {
 	PedidoService pedidoService;
 	public PedidoController(PedidoService pedidoService) {
 		this.pedidoService = pedidoService;
 	}
 	
-	@GetMapping
-	List<Pedido> getAllActivePedido(){
-		return pedidoService.getAllActivePedido();
-	}
 	
 	
 	  @GetMapping

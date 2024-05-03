@@ -11,17 +11,13 @@ import com.kibobazar.app.service.PrivilegioService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/v1/privilegio")
+@RequestMapping("api/v1/privilegios")
 public class PrivilegioController {
 	PrivilegioService privilegioService;
 	public PrivilegioController(PrivilegioService privilegioService) {
 		this.privilegioService = privilegioService;
 	}
 	
-	@GetMapping
-	List<Privilegio> getAllActivePrivilegio(){
-		return privilegioService.getAllActivePrivilegio();
-	}
 	
 	
 	  @GetMapping

@@ -31,6 +31,8 @@ public class Pedido {
 
     @Column(name = "estado_pedido", nullable = false, length = 100)
     private String estadoPedido;
+    
+    private Boolean active;
 
     //Creando la relacion entre entidades
   	@ManyToOne
@@ -101,6 +103,14 @@ public class Pedido {
 	public Cliente getCliente() {
 		return cliente;
 	}
+	
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
@@ -126,6 +136,8 @@ public class Pedido {
 		builder.append(estadoPedido);
 		builder.append(", cliente=");
 		builder.append(cliente);
+		builder.append(", active=");
+		builder.append(active);
 		builder.append("]");
 		return builder.toString();
 	}

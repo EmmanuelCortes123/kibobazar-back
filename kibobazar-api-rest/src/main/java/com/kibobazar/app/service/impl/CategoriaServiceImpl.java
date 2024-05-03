@@ -43,8 +43,8 @@ public class CategoriaServiceImpl implements CategoriaService{
 		
 		
 		
-		if(categoriaRepository.existsById(categoria.getId())) {
-			throw new IllegalStateException("categoria exist with id " + categoria.getId());
+		if(categoriaRepository.existsByNombre(categoria.getNombre())) {
+			throw new IllegalStateException("Categoria exist with id " + categoria.getNombre());
 		}
 		return categoriaRepository.save(categoria);
 	}
