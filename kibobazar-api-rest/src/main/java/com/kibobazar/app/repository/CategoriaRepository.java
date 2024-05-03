@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import com.kibobazar.app.entity.Categoria;
+import com.kibobazar.app.entity.Cliente;
 
 public interface CategoriaRepository extends CrudRepository<Categoria, Long>{
 	Optional<Categoria> findById(Long id);

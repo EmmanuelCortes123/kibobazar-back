@@ -1,10 +1,10 @@
 package com.kibobazar.app.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.kibobazar.app.entity.Categoria;
 import com.kibobazar.app.entity.Pedido;
 import com.kibobazar.app.repository.PedidoRepository;
 import com.kibobazar.app.service.PedidoService;
@@ -20,14 +20,28 @@ public class PedidoServiceImpl implements PedidoService{
 
 	@Override
 	public Pedido getPedidoById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Pedido> pedidoOptional = pedidoRepository.findById(id);
+		Pedido existingPedido;
+		
+		if( pedidoOptional.isPresent() ) {
+			existingPedido = pedidoOptional.get();
+			return existingPedido;
+		} else {
+			throw new IllegalStateException("Pedido does not exist with id " + id);
+		}
 	}
 
 	@Override
 	public Pedido getPedidoByCorreo(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Pedido> pedidoOptional = pedidoRepository.findByCorreo(email);
+		Pedido existingPedido;
+		
+		if( pedidoOptional.isPresent() ) {
+			existingPedido = pedidoOptional.get();
+			return existingPedido;
+		} else {
+			throw new IllegalStateException("Pedido does not exist with correo " + email);
+		}
 	}
 
 	@Override
@@ -38,25 +52,38 @@ public class PedidoServiceImpl implements PedidoService{
 
 	@Override
 	public List<Pedido> getAllActivePedido() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Pedido>) pedidoRepository.findAllByActiveTrue();
 	}
 
 	@Override
 	public List<Pedido> getAllInactivePedido() {
-		return null;
+		return (List<Pedido>) pedidoRepository.findAllByActiveFalse();
 	}
 
 	@Override
 	public Pedido updatePedido(Pedido pedido, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Pedido existingPedido = getPedidoById(id);
+		existingPedido.setMonto(pedido.getMonto());
+		existingPedido.setDireccionEnvio(pedido.getDireccionEnvio());
+		existingPedido.setDireccionPedido(pedido.getDireccionPedido());
+		existingPedido.setCorreo(pedido.getCorreo());
+		existingPedido.setFechaPedido(pedido.getFechaPedido());
+		existingPedido.setEstadoPedido(pedido.getEstadoPedido());
+		return pedidoRepository.save(existingPedido);
 	}
 
 	@Override
 	public void deletePedido(Long id) {
-		// TODO Auto-generated method stub
+		Pedido existingPedido = getPedidoById(id);
+		existingPedido.setActive(false);
+		pedidoRepository.save(existingPedido);
 		
+	}
+
+	@Override
+	public List<Pedido> getAllPedido(boolean isActive) {
+		if (isActive) return getAllActivePedido();
+		else return getAllInactivePedido();
 	}
 
 }

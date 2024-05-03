@@ -11,16 +11,13 @@ import com.kibobazar.app.service.CategoriaService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/v1/categoria")
+@RequestMapping("api/v1/categorias")
 public class CategoriaController {
+	
 	CategoriaService categoriaService;
+	
 	public CategoriaController(CategoriaService categoriaService) {
 		this.categoriaService = categoriaService;
-	}
-	
-	@GetMapping
-	List<Categoria> getAllActiveCategoria(){
-		return categoriaService.getAllActiveCategoria();
 	}
 	
 	

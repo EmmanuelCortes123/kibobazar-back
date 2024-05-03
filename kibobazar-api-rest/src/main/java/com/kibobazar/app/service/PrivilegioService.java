@@ -6,7 +6,6 @@ import com.kibobazar.app.entity.Privilegio;
 
 public interface PrivilegioService {
 	Privilegio getPrivilegioById(Long id);
-	Privilegio getPrivilegioByCorreo(String email);
 	Privilegio createPrivilegio(Privilegio provilegio);
 	List<Privilegio> getAllActivePrivilegio();
 	List<Privilegio> getAllInactivePrivilegio();

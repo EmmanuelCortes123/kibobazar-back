@@ -7,16 +7,16 @@ INSERT INTO categorias (nombre, descripcion) VALUES ("Falda", "faldas de diferen
 INSERT INTO categorias (nombre, descripcion) VALUES ("Blusa", "blusas de diferentes estilos ");
 INSERT INTO categorias (nombre, descripcion) VALUES ("Camisa", "camisas de diferentes estilos");
 
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5646813295", "Salazar", "mango6", "miguel@salazar.com", "Miguel");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (0, 1,  "8161684558", "Gonzalez", "mango2", "luis@gonzlez.com", "Luis");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5154572854", "Perez", "mango5", "ximena@perez.com", "Ximena");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (0, 1,  "2584117754", "Rodriguez", "mango8", "michel@rodriguez.com", "Michel");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5416546466", "Mangel", "mango4", "joel@mangel.com", "Joel");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "732-254-1589", "Martinez", "Am7#hT51", "ana.martinez@gmail.com", "Ana");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "318-654-2958", "Jimenez", "Cj1#eR62", "carlos.jimenez@gmail.com", "Carlos");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "402-659-3951", "Vega", "Iv9#sX47", "isabel.vega@gmail.com", "Isabel");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "619-501-6548", "Dominguez", "Rd3#nY84", "raul.dominguez@gmail.com", "Raúl");
-INSERT INTO clientes (active, privilegio_id_privilegios, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "505-711-3854", "Nieto", "En10#zM95", "elena.nieto@gmail.com", "Elena");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5646813295", "Salazar", "mango6", "miguel@salazar.com", "Miguel");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (0, 1,  "8161684558", "Gonzalez", "mango2", "luis@gonzlez.com", "Luis");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5154572854", "Perez", "mango5", "ximena@perez.com", "Ximena");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (0, 1,  "2584117754", "Rodriguez", "mango8", "michel@rodriguez.com", "Michel");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2,  "5416546466", "Mangel", "mango4", "joel@mangel.com", "Joel");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "7322541589", "Martinez", "Am7hT51", "ana.martinez@gmail.com", "Ana");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "3186542958", "Jimenez", "CjheR62", "carlos.jimenez@gmail.com", "Carlos");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "4026593951", "Vega", "Iv9sX47", "isabel.vega@gmail.com", "Isabel");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "6195016548", "Dominguez", "Rd3nY84", "raul.dominguez@gmail.com", "Raúl");
+INSERT INTO clientes (active, role_id, telefono, apellido, contraseña, correo, nombre) VALUES (1, 2, "5057113854", "Nieto", "En10zM95", "elena.nieto@gmail.com", "Elena");
 
 
 

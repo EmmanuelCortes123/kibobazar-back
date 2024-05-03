@@ -41,6 +41,7 @@ public class CategoriaServiceImpl implements CategoriaService{
 	@Override
 	public Categoria createCategoria(Categoria categoria) {
 		categoria.setActive(true);
+<<<<<<< HEAD
         categoria.setId(null);
 
 
@@ -50,6 +51,17 @@ public class CategoriaServiceImpl implements CategoriaService{
         }
         return categoriaRepository.save(categoria);
     }
+=======
+		categoria.setId(null);
+		
+		
+		
+		if(categoriaRepository.existsByNombre(categoria.getNombre())) {
+			throw new IllegalStateException("Categoria exist with id " + categoria.getNombre());
+		}
+		return categoriaRepository.save(categoria);
+	}
+>>>>>>> c7585de1360de6dd1d8f458291b9756cc923a43f
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {

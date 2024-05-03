@@ -13,6 +13,8 @@ public class Privilegio {
 
     @Column(name = "privilegios", nullable = false, length = 20)
     private String privilegios;
+    
+    private Boolean active;
 
 	// Creando constructor vacio
     public Privilegio(){
@@ -37,6 +39,14 @@ public class Privilegio {
 	public void setPrivilegios(String privilegios) {
 		this.privilegios = privilegios;
 	}
+	
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	// Creando metodo toString con StringBuilder
 	@Override
@@ -46,6 +56,8 @@ public class Privilegio {
 		builder.append(id);
 		builder.append(", privilegios=");
 		builder.append(privilegios);
+		builder.append(", active=");
+		builder.append(active);
 		builder.append("]");
 		return builder.toString();
 	}

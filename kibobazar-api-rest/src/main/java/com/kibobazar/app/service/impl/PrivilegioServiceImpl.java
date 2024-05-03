@@ -1,10 +1,10 @@
 package com.kibobazar.app.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.kibobazar.app.entity.Categoria;
 import com.kibobazar.app.entity.Privilegio;
 import com.kibobazar.app.repository.PrivilegioRepository;
 import com.kibobazar.app.service.PrivilegioService;
@@ -20,14 +20,15 @@ public class PrivilegioServiceImpl implements PrivilegioService{
 
 	@Override
 	public Privilegio getPrivilegioById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Privilegio getPrivilegioByCorreo(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Privilegio> privilegioOptional = privilegioRepository.findById(id);
+		Privilegio existingPrivilegio;
+		
+		if( privilegioOptional.isPresent() ) {
+			existingPrivilegio = privilegioOptional.get();
+			return existingPrivilegio;
+		} else {
+			throw new IllegalStateException("Privilegio does not exist with id " + id);
+		}
 	}
 
 	@Override
@@ -38,25 +39,34 @@ public class PrivilegioServiceImpl implements PrivilegioService{
 
 	@Override
 	public List<Privilegio> getAllActivePrivilegio() {
-		return null;
+		return (List<Privilegio>) privilegioRepository.findAllByActiveTrue();
 	}
 
 	@Override
 	public List<Privilegio> getAllInactivePrivilegio() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (List<Privilegio>) privilegioRepository.findAllByActiveFalse();
 	}
 
 	@Override
 	public Privilegio updatePrivilegio(Privilegio privilegio, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Privilegio existingPrivilegio = getPrivilegioById(id);
+		existingPrivilegio.setId(privilegio.getId());
+		existingPrivilegio.setPrivilegios(privilegio.getPrivilegios());
+		return privilegioRepository.save(existingPrivilegio);
 	}
 
 	@Override
 	public void deletePrivilegio(Long id) {
-		// TODO Auto-generated method stub
-		
+		Privilegio existingPrivilegio = getPrivilegioById(id);
+		existingPrivilegio.setActive(false);
+		privilegioRepository.save(existingPrivilegio);
+	}
+
+	@Override
+	public List<Privilegio> getAllPrivilegio(boolean isActive) {
+		if (isActive) return getAllActivePrivilegio();
+		else return getAllInactivePrivilegio();
 	}
 
 }
