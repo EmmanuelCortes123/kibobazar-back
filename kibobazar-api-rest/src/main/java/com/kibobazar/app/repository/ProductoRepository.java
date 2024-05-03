@@ -13,4 +13,5 @@ public interface ProductoRepository extends CrudRepository<Producto, Long>{
 	Iterable<Producto> findAllByActiveTrue();
 	Iterable<Producto> findAllByActiveFalse();
 	boolean existsById(Long id);
+	boolean existsByNombre(String nombre);
 }

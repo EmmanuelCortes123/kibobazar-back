@@ -47,10 +47,24 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public Producto createProducto(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Producto createProducto(Producto producto) {
+        producto.setActive(true);
+        producto.setId(null);
+
+        producto.setNombre(producto.getNombre());
+        producto.setTalla(producto.getTalla());
+        producto.setImagen(producto.getImagen());
+        producto.setMaterial(producto.getMaterial());
+        producto.setDescripcion(producto.getDescripcion());
+        producto.setMedidas(producto.getMedidas());
+        producto.setPrecio(producto.getPrecio());
+
+
+        if(productoRepository.existsByNombre(producto.getNombre())) {
+            throw new IllegalStateException("Producto exist with nombre " + producto.getNombre());
+        }
+        return productoRepository.save(producto);
+    }
 
 	@Override
 	public List<Producto> getAllActiveProducto() {
