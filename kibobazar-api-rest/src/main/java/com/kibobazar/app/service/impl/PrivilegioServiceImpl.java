@@ -37,6 +37,8 @@ public class PrivilegioServiceImpl implements PrivilegioService{
         privilegio.setId(null);
 
 
+        privilegio.setPrivilegios(privilegio.getPrivilegios());
+
         if(privilegioRepository.existsByPrivilegios(privilegio.getPrivilegios())) {
             throw new IllegalStateException("Cliente exist with privilegio " + privilegio.getPrivilegios());
         }
