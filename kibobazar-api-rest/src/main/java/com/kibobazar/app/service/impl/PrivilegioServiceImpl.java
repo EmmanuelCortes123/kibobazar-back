@@ -32,10 +32,16 @@ public class PrivilegioServiceImpl implements PrivilegioService{
 	}
 
 	@Override
-	public Privilegio createPrivilegio(Privilegio provilegio) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Privilegio createPrivilegio(Privilegio privilegio) {
+        privilegio.setActive(true);
+        privilegio.setId(null);
+
+
+        if(privilegioRepository.existsByPrivilegios(privilegio.getPrivilegios())) {
+            throw new IllegalStateException("Cliente exist with privilegio " + privilegio.getPrivilegios());
+        }
+        return privilegioRepository.save(privilegio);
+    }
 
 	@Override
 	public List<Privilegio> getAllActivePrivilegio() {

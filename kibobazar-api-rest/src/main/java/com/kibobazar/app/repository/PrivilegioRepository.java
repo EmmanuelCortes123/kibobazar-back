@@ -12,4 +12,5 @@ public interface PrivilegioRepository extends CrudRepository <Privilegio, Long>{
 	Iterable<Privilegio> findAllByActiveTrue();
 	Iterable<Privilegio> findAllByActiveFalse();
 	boolean existsById(Long id);
+	boolean existsByPrivilegios(String privilegios);
 }
