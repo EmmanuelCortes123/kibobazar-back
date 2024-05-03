@@ -37,17 +37,17 @@ public class CategoriaServiceImpl implements CategoriaService{
 	}
 
 	@Override
-	public Categoria createCategoria(Categoria categoria) {
-		categoria.setActive(true);
-		categoria.setId(null);
-		
-		
-		
-		if(categoriaRepository.existsByNombre(categoria.getNombre())) {
-			throw new IllegalStateException("Categoria exist with id " + categoria.getNombre());
-		}
-		return categoriaRepository.save(categoria);
-	}
+    public Categoria createCategoria(Categoria categoria) {
+        categoria.setActive(true);
+        categoria.setId(null);
+
+        categoria.setDescripcion(categoria.getDescripcion());
+
+        if(categoriaRepository.existsByNombre(categoria.getNombre())) {
+            throw new IllegalStateException("Categoria exist with nombre " + categoria.getNombre());
+        }
+        return categoriaRepository.save(categoria);
+    }
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {
