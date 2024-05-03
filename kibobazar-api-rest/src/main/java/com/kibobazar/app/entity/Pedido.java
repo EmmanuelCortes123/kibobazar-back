@@ -129,6 +129,12 @@ public class Pedido {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	public void setActive(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
     
     
     
