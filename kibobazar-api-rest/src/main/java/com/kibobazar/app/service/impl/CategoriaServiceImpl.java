@@ -35,19 +35,21 @@ public class CategoriaServiceImpl implements CategoriaService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 	@Override
 	public Categoria createCategoria(Categoria categoria) {
 		categoria.setActive(true);
-		categoria.setId(null);
-		
-		
-		
-		if(categoriaRepository.existsById(categoria.getId())) {
-			throw new IllegalStateException("categoria exist with id " + categoria.getId());
-		}
-		return categoriaRepository.save(categoria);
-	}
+        categoria.setId(null);
+
+
+
+        if(categoriaRepository.existsByNombre(categoria.getNombre())) {
+            throw new IllegalStateException("Categoria exist with id " + categoria.getNombre());
+        }
+        return categoriaRepository.save(categoria);
+    }
 
 	@Override
 	public List<Categoria> getAllActiveCategoria() {

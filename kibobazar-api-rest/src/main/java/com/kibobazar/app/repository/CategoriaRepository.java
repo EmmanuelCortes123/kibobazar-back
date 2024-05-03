@@ -11,4 +11,5 @@ public interface CategoriaRepository extends CrudRepository<Categoria, Long>{
 	Iterable<Categoria> findAllByActiveTrue();// select * from cliente where active = 1;
 	Iterable<Categoria> findAllByActiveFalse();
 	boolean existsById(Long id);
+	boolean existsByNombre(String nombre);
 }
