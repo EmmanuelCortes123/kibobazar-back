@@ -15,11 +15,11 @@ import com.kibobazar.app.service.ClienteService;
 public class ClienteServiceImpl implements ClienteService {
 
 	ClienteRepository clienteRepository;
-	PasswordEncoder passwordEncoder;
 	
-	public ClienteServiceImpl(ClienteRepository clienteRepository, PasswordEncoder passwordEncoder) {
+	
+	public ClienteServiceImpl(ClienteRepository clienteRepository) {
 	this.clienteRepository = clienteRepository;
-	this.passwordEncoder = passwordEncoder;
+	
 	}
 	
 	@Override
@@ -53,7 +53,7 @@ public class ClienteServiceImpl implements ClienteService {
 		cliente.setActive(true);
 		cliente.setId(null);
 		
-		cliente.setContraseña(passwordEncoder.encode(cliente.getContraseña()));
+		cliente.setContraseña(cliente.getContraseña());
 		
 		if(clienteRepository.existsByCorreo(cliente.getCorreo())) {
 			throw new IllegalStateException("User exist with email " + cliente.getCorreo());
